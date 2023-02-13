@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Contact</h1>
+  <form action="/contact" method="get">
+    <input type="text" name="member" placeholder='Name of member' value='<%= params[:member] %>'>
+    <input type="submit" class='btn btn-primary'>
+  </form>
+  <ul>
+    <% if @members.any? %>
+      <% @members.each do |member| %>
+        <li><%= member.capitalize %></li>
+      <% end %>
+    <% else %>
+      <li>No results found for <%= params[:member] %></li>
+    <% end %>
+  </ul>
+  <%= link_to 'Home text', root_path, class: 'btn btn-primary'  %>
+  <%= link_to root_path, class: 'btn btn-primary' do %>
+    <i class="fa-solid fa-house"></i>
+  <% end %>
+</div>
